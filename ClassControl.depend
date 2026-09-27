@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1790422096 source:d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\main.cpp
+	<iostream>
+	"Curso.h"
+	"ArchivoCuros.h"
+
+1790425148 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\archivocuros.h
+	<string>
+	"Curso.h"
+
+1790425624 source:d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\archivocuros.cpp
+	"ArchivoCuros.h"
+	<string>
+	"Curso.h"
+
+1790425523 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\curso.h
+	"CodigoCurso.h"
+	"Nivel.h"
+	"Grado.h"
+	"Division.h"
+	"DiaSemana.h"
+
+1790425500 source:d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\curso.cpp
+	"Curso.h"
+
+1790356036 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\diasemana.h
+
+1790356492 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\codigocurso.h
+
+1790356492 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\nivel.h
+
+1790356492 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\division.h
+
+1790356665 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\grado.h
+
+1790539070 source:d:\utn-mayra\programación ii\classcontrol\classcontrol\classcontrol\archivocuros.cpp
+	"ArchivoCuros.h"
+	<string>
+	"Curso.h"
+
+1790539070 d:\utn-mayra\programación ii\classcontrol\classcontrol\classcontrol\archivocuros.h
+	<string>
+	"Curso.h"
+
+1790539070 d:\utn-mayra\programación ii\classcontrol\classcontrol\classcontrol\curso.h
+	"CodigoCurso.h"
+	"Nivel.h"
+	"Grado.h"
+	"Division.h"
+	"DiaSemana.h"
+
+1790539070 d:\utn-mayra\programación ii\classcontrol\classcontrol\classcontrol\codigocurso.h
+
+1790539070 d:\utn-mayra\programación ii\classcontrol\classcontrol\classcontrol\nivel.h
+
+1790539070 d:\utn-mayra\programación ii\classcontrol\classcontrol\classcontrol\grado.h
+
+1790539070 d:\utn-mayra\programación ii\classcontrol\classcontrol\classcontrol\division.h
+
+1790539070 d:\utn-mayra\programación ii\classcontrol\classcontrol\classcontrol\diasemana.h
+
+1790539070 source:d:\utn-mayra\programación ii\classcontrol\classcontrol\classcontrol\curso.cpp
+	"Curso.h"
+
+1790539070 source:d:\utn-mayra\programación ii\classcontrol\classcontrol\classcontrol\main.cpp
+	<iostream>
+	"Curso.h"
+	"ArchivoCuros.h"
+
