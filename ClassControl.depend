@@ -1,0 +1,87 @@
+# depslib dependency file v1.0
+1792163505 source:d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\main.cpp
+	<iostream>
+	"CursoMenu.h"
+
+1791847818 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\archivocuros.h
+	<string>
+	"Curso.h"
+
+1790425624 source:d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\archivocuros.cpp
+	"ArchivoCuros.h"
+	<string>
+	"Curso.h"
+
+1792021831 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\curso.h
+	"CursoCodigo.h"
+	"Grado.h"
+	"Division.h"
+	"DiaSemana.h"
+
+1792016959 source:d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\curso.cpp
+	"Curso.h"
+
+1791972110 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\diasemana.h
+
+1790356492 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\codigocurso.h
+
+1791972100 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\nivel.h
+
+1791972106 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\division.h
+
+1791972103 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\grado.h
+
+1791847818 source:d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\curosarchivo.cpp
+	"ArchivoCuros.h"
+	<string>
+	"Curso.h"
+
+1792163968 source:d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\menu.cpp
+	<iostream>
+	<string>
+	"Menu.h"
+
+1791210097 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\menu.h
+	<string>
+
+1791972097 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\cursocodigo.h
+
+1792161840 source:d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\cursoarchivo.cpp
+	<string>
+	"CursoArchivo.h"
+	"Curso.h"
+	"ArchivoError.h"
+
+1791974515 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\cursoarchivo.h
+	<string>
+	"Curso.h"
+	"ArchivoError.h"
+
+1792164013 source:d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\cursomenu.cpp
+	"CursoMenu.h"
+	"Menu.h"
+	"CursoManager.h"
+
+1792163248 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\cursomenu.h
+	"Menu.h"
+	"CursoManager.h"
+
+1792163610 source:d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\cursomanager.cpp
+	<iostream>
+	"CursoManager.h"
+	"CursoArchivo.h"
+	"Curso.h"
+
+1792024571 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\cursomanager.h
+	"Curso.h"
+	"CursoArchivo.h"
+
+1791900905 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\archivoerror.h
+
+1791907746 source:d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\fecha.cpp
+	<string>
+	"Fecha.h"
+
+1791907746 d:\documentos\utn - frgp\tec. universitaria en programacion_plan 2024\5. programacion ii\tp integrador 2026 2do cuatrimestre\classcontrol\fecha.h
+	<string>
+
