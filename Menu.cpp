@@ -27,18 +27,14 @@ void Menu::setOpciones(int opcion, std::string texto)
 
 void Menu::dibujarMenu()
 {
-
-    std::cout << "------------ MENU ------------" << std::endl;
+    std::cout << "------------" << _tituloMenu << "------------" << std::endl;
 
     for(int i=0; i<_cantOpciones; i++)
     {
         std::cout << i+1 << ". " << _vOpciones[i] << std::endl;
     }
-
     std::cout << "-------------------------------" << std::endl;
-    std::cout << "0. SALIR";
-    std::cout << std::endl;
-    std::cout << std::endl;
+    std::cout << "0. " << _opCero << std::endl << std::endl;
 }
 
 int Menu::obtenerOpcionSeleccionada()
@@ -58,6 +54,16 @@ int Menu::obtenerOpcionSeleccionada()
     while(opcion<0 || opcion>_cantOpciones);
     std::cout << std::endl;
     return opcion;
+}
+
+void Menu::setTituloMenu(std::string tituloMenu)
+{
+    _tituloMenu=tituloMenu;
+}
+
+void Menu::setOpCero(std::string opCero)
+{
+    _opCero=opCero;
 }
 
 Menu::~Menu()

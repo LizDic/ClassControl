@@ -1,13 +1,13 @@
 #include <iostream>
-#include "CursoMenu.h"
+#include "AppMenu.h"
 
 using namespace std;
 
 int main()
 {
-    CursoMenu menu;
+    AppMenu app;
 
-    menu.runCurso();
+    app.runApp();
 
     return 0;
 }

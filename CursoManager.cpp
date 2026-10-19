@@ -2,6 +2,7 @@
 #include "CursoManager.h"
 #include "CursoArchivo.h"
 #include "Curso.h"
+#include "utils.h"
 
 CursoManager::CursoManager()
 {
@@ -10,7 +11,6 @@ CursoManager::CursoManager()
 Curso CursoManager::crearCurso()
 {
     int idCurso,cc,gr,div,ds;
-    bool estado=true;
     Grado grado;
     Division division;
     DiaSemana diaSemana;
@@ -18,86 +18,41 @@ Curso CursoManager::crearCurso()
 
     idCurso=_cursoArchivo.getNewID();
 
+    system("cls");
+
     std::cout << "-----CARGAR CURSO-------" << std::endl;
     std::cout << "ID Curso: " << idCurso << std::endl;
     //AGREGAR LOS CODIGOS DE LOS CURSOS
-    std::cout << "Codigo: 1(P3A)-";
+    std::cout << "Codigo" << std::endl;
+    std::cout << "1 - P3A" << std::endl;
     std::cin >> cc;
-    std::cout << "Grado: 1(1ro)-2(2do)-3(ro)-4(4to)-5(5to)-6(6to)";
+
+    std::cout << "Grado " << std::endl;
+    std::cout << "1 - Primero" << std::endl;
+    std::cout << "2 - Segundo" << std::endl;
+    std::cout << "3 - Tercero" << std::endl;
+    std::cout << "4 - Cuarto" << std::endl;
+    std::cout << "5 - Quinto" << std::endl;
+    std::cout << "6 - Sexto" << std::endl;
     std::cin >> gr;
-    std::cout << "Division: 1(A), 2(B), 3(C)";
+
+    std::cout << "Division " << std::endl;
+    std::cout << "1 - A" << std::endl;
+    std::cout << "2 - B" << std::endl;
+    std::cout << "3 - C" << std::endl;
     std::cin >> div;
-    std::cout << "Dia Semana: 1(Lunes)-2(Martes)-3(Miercoles)-4(Jueves)-5(Viernes)-6(Sabado)-7(Domingo)";
+
+    std::cout << "Dia semana " << std::endl;
+    std::cout << "1 - Lunes" << std::endl;
+    std::cout << "2 - Martes" << std::endl;
+    std::cout << "3 - Miercoles" << std::endl;
+    std::cout << "4 - Jueves" << std::endl;
+    std::cout << "5 - Viernes" << std::endl;
+    std::cout << "6 - Sabado" << std::endl;
+    std::cout << "7 - Domingo" << std::endl;
     std::cin >> ds;
 
-    switch(cc)
-    {
-    case 1:
-        CodigoCurso::P3A;
-        break;
-    }
-
-    switch(gr)
-    {
-    case 1:
-        Grado::PRIMERO;
-        break;
-    case 2:
-        Grado::SEGUNDO;
-        break;
-    case 3:
-        Grado::TERCERO;
-        break;
-    case 4:
-        Grado::CUARTO;
-        break;
-    case 5:
-        Grado::QUINTO;
-        break;
-    case 6:
-        Grado::SEXTO;
-        break;
-    }
-
-    switch(div)
-    {
-    case 1:
-        Division::A;
-        break;
-    case 2:
-        Division::B;
-        break;
-    case 3:
-        Division::C;
-        break;
-    }
-
-    switch(ds)
-    {
-    case 1:
-        DiaSemana::LUNES;
-        break;
-    case 2:
-        DiaSemana::MARTES;
-        break;
-    case 3:
-        DiaSemana::MIERCOLES;
-        break;
-    case 4:
-        DiaSemana::JUEVES;
-        break;
-    case 5:
-        DiaSemana::VIERNES;
-        break;
-    case 6:
-        DiaSemana::SABADO;
-        break;
-    case 7:
-        DiaSemana::DOMINGO;
-        break;
-    }
-
-    return Curso(idCurso,codCurso,grado,division,diaSemana,estado);
+    return Curso(idCurso,intToCodCurso(cc),intToGrado(gr),intToDivision(div),intToDiaSemana(ds));
 }
 
 void CursoManager::registrarCurso()
@@ -111,13 +66,16 @@ void CursoManager::registrarCurso()
         std::cout << "Error: " << _cursoArchivo.getLastError() << std::endl;
     }
     system("pause");
+    system("cls");
+
 }
 
 void CursoManager::listarCursos()
 {
+    system("cls");
     int cantReg;
 
-    std::cout << "---------Listado de Cursos-----------------" << std::endl;
+    std::cout << "-------------Listado de Cursos--------------" << std::endl;
     cantReg=_cursoArchivo.getCantReg();
 
     if(!cantReg)
@@ -131,34 +89,26 @@ void CursoManager::listarCursos()
 
         for(int i=0; i<cantReg; i++)
         {
-            std::cout << "Id: "<<vCursos[i].getIdCurso() << std::endl;
+            if(vCursos[i].getEstado())
+            {
+            std::cout << "Id: "<< vCursos[i].getIdCurso() << std::endl;
             //COMPLETAR LOS CODIGOS DE LOS CURSOS
-            if(vCursos[i].getCodigoCurso()==CodigoCurso::P3A) std::cout << "Codigo: P3A" << std::endl;
-            if(vCursos[i].getGrado()==Grado::PRIMERO) std::cout << "Primer Grado" << std::endl;
-            if(vCursos[i].getGrado()==Grado::SEGUNDO) std::cout << "Segundo Grado" << std::endl;
-            if(vCursos[i].getGrado()==Grado::TERCERO) std::cout << "Tercero Grado" << std::endl;
-            if(vCursos[i].getGrado()==Grado::CUARTO) std::cout << "Cuarto Grado" << std::endl;
-            if(vCursos[i].getGrado()==Grado::QUINTO) std::cout << "Quinto Grado" << std::endl;
-            if(vCursos[i].getGrado()==Grado::SEXTO) std::cout << "Sexto Grado" << std::endl;
-            if(vCursos[i].getDivision()==Division::A) std::cout << "Division A" << std::endl;
-            if(vCursos[i].getDivision()==Division::B) std::cout << "Division B" << std::endl;
-            if(vCursos[i].getDivision()==Division::C) std::cout << "Division C" << std::endl;
-            if(vCursos[i].getDiaSemana()==DiaSemana::LUNES) std::cout << "Lunes" << std::endl;
-            if(vCursos[i].getDiaSemana()==DiaSemana::MARTES) std::cout << "Martes" << std::endl;
-            if(vCursos[i].getDiaSemana()==DiaSemana::MIERCOLES) std::cout << "Miercoles" << std::endl;
-            if(vCursos[i].getDiaSemana()==DiaSemana::JUEVES) std::cout << "Jueves" << std::endl;
-            if(vCursos[i].getDiaSemana()==DiaSemana::VIERNES) std::cout << "Viernes" << std::endl;
-            if(vCursos[i].getDiaSemana()==DiaSemana::SABADO) std::cout << "Sabado" << std::endl;
-            if(vCursos[i].getDiaSemana()==DiaSemana::DOMINGO) std::cout << "Domingo" << std::endl;
-            std::cout<<"Estado: "<<vCursos[i].getIdCurso()<<std::endl;
+            std::cout << "Codigo: " << codigoCursoToString(vCursos[i].getCodigoCurso()) << std::endl;
+            std::cout << "Grado: " << gradoToString(vCursos[i].getGrado()) << std::endl;
+            std::cout << "Division: " << divisionToString(vCursos[i].getDivision()) << std::endl;
+            std::cout << "Dia de semana: " << diaSemanaToString(vCursos[i].getDiaSemana()) << std::endl;
+            std::cout << "--------------------------------------------" << std::endl;
+            }
         }
         delete []vCursos;
     }
     system("pause");
+    system("cls");
 }
 
 void CursoManager::modificarCurso()
 {
+    system("cls");
     int index, id;
     Curso reg;
     std::string descripcion;
@@ -177,7 +127,7 @@ void CursoManager::modificarCurso()
 
 void CursoManager::eliminarCurso()
 {
-
+    return;
 }
 
 

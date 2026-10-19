@@ -6,18 +6,18 @@ Curso::Curso()
      _grado(Grado::NONE),
      _div(Division::NONE),
      _dSemana(DiaSemana::NONE),
-     _estado(0)
+     _estado(true)
 {
 }
 
-Curso::Curso(int id, CodigoCurso codCurso, Grado grado, Division div, DiaSemana dSemana, bool estado)
+Curso::Curso(int id, CodigoCurso codCurso, Grado grado, Division div, DiaSemana dSemana)
 {
     setIdCurso(id);
     setCodigoCurso(codCurso);
     setGrado(grado);
     setDivision(div);
     setDiaSemana(dSemana);
-    setEstado(estado);
+    setEstado(true);
 }
 
 void Curso::setIdCurso(int idCurso)

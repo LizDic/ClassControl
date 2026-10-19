@@ -13,8 +13,7 @@ public:
           CodigoCurso codCurso,
           Grado grado,
           Division div,
-          DiaSemana dSemana,
-          bool estado);
+          DiaSemana dSemana);
     ///SETTERS
     void setIdCurso(int idCurso);
     void setCodigoCurso(CodigoCurso codigoCurso);
