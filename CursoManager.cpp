@@ -3,6 +3,7 @@
 #include "CursoArchivo.h"
 #include "Curso.h"
 #include "utils.h"
+#include "rlutil.h"
 
 CursoManager::CursoManager()
 {
@@ -18,8 +19,7 @@ Curso CursoManager::crearCurso()
 
     idCurso=_cursoArchivo.getNewID();
 
-    system("cls");
-
+    rlutil::cls();
     std::cout << "-----CARGAR CURSO-------" << std::endl;
     std::cout << "ID Curso: " << idCurso << std::endl;
     //AGREGAR LOS CODIGOS DE LOS CURSOS
@@ -66,13 +66,13 @@ void CursoManager::registrarCurso()
         std::cout << "Error: " << _cursoArchivo.getLastError() << std::endl;
     }
     system("pause");
-    system("cls");
+    rlutil::cls();
 
 }
 
 void CursoManager::listarCursos()
 {
-    system("cls");
+    rlutil::cls();
     int cantReg;
 
     std::cout << "-------------Listado de Cursos--------------" << std::endl;
@@ -91,24 +91,24 @@ void CursoManager::listarCursos()
         {
             if(vCursos[i].getEstado())
             {
-            std::cout << "Id: "<< vCursos[i].getIdCurso() << std::endl;
-            //COMPLETAR LOS CODIGOS DE LOS CURSOS
-            std::cout << "Codigo: " << codigoCursoToString(vCursos[i].getCodigoCurso()) << std::endl;
-            std::cout << "Grado: " << gradoToString(vCursos[i].getGrado()) << std::endl;
-            std::cout << "Division: " << divisionToString(vCursos[i].getDivision()) << std::endl;
-            std::cout << "Dia de semana: " << diaSemanaToString(vCursos[i].getDiaSemana()) << std::endl;
-            std::cout << "--------------------------------------------" << std::endl;
+                std::cout << "Id: "<< vCursos[i].getIdCurso() << std::endl;
+                //COMPLETAR LOS CODIGOS DE LOS CURSOS
+                std::cout << "Codigo: " << codigoCursoToString(vCursos[i].getCodigoCurso()) << std::endl;
+                std::cout << "Grado: " << gradoToString(vCursos[i].getGrado()) << std::endl;
+                std::cout << "Division: " << divisionToString(vCursos[i].getDivision()) << std::endl;
+                std::cout << "Dia de semana: " << diaSemanaToString(vCursos[i].getDiaSemana()) << std::endl;
+                std::cout << "--------------------------------------------" << std::endl;
             }
         }
         delete []vCursos;
     }
     system("pause");
-    system("cls");
+    rlutil::cls();
 }
 
 void CursoManager::modificarCurso()
 {
-    system("cls");
+    rlutil::cls();
     int index, id;
     Curso reg;
     std::string descripcion;
@@ -127,8 +127,37 @@ void CursoManager::modificarCurso()
 
 void CursoManager::eliminarCurso()
 {
-    return;
+    rlutil::cls();
+    int index, id;
+    Curso reg;
+
+    std::cout << "ID del Curso a eliminar: ";
+    std::cin >> id;
+
+    index=_cursoArchivo.buscarByID(id);
+
+    if(index==-1)
+    {
+        std::cout << "El curso con ID " << id << " no se encuentra en el sistema..." << std::endl;
+        return;
+    }
+
+    reg=_cursoArchivo.leer(index);
+
+    if(reg.getIdCurso()==-1)
+    {
+        std::cout << "Error curso no encontrado por ID";
+        return;
+    }
+
+    reg.setEstado(false);
+    if(_cursoArchivo.actualizar(index,reg)==ArchivoError::OK)
+    {
+
+       std::cout << "Curso con ID " << id << " eliminado con éxito." << std::endl;
+    }
 }
+
 
 
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "rlutil.h"
 #include "utils.h"
 
 std::string cargarCadena()
@@ -110,4 +111,24 @@ std::string diaSemanaToString(DiaSemana dSemana)
         case DiaSemana::DOMINGO: return "Domingo";
         default: return "Desconocido";
     }
+}
+
+void showItem(const std::string text, int posx, int posy, bool selected)
+{
+    if(selected)
+    {
+        setBackgroundColor(rlutil::BLUE);
+        //locate(posx -4, posy);
+        //cout << " " << text << " " << endl;
+    }
+    else
+    {
+        setBackgroundColor(rlutil::BLACK);
+        //locate(posx -4, posy);
+        //cout << " " << text << " " << endl;
+    }
+
+    rlutil::locate(posx, posy);
+    std::cout << text << std::endl;
+    setBackgroundColor(rlutil::BLACK);
 }

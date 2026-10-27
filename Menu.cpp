@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include "Menu.h"
+#include "utils.h"
+#include "rlutil.h"
 
 Menu::Menu(int cantOpciones)
 {
@@ -25,37 +27,6 @@ void Menu::setOpciones(int opcion, std::string texto)
     }
 }
 
-void Menu::dibujarMenu()
-{
-    std::cout << "------------" << _tituloMenu << "------------" << std::endl;
-
-    for(int i=0; i<_cantOpciones; i++)
-    {
-        std::cout << i+1 << ". " << _vOpciones[i] << std::endl;
-    }
-    std::cout << "-------------------------------" << std::endl;
-    std::cout << "0. " << _opCero << std::endl << std::endl;
-}
-
-int Menu::obtenerOpcionSeleccionada()
-{
-    int opcion;
-
-    do
-    {
-        std::cout << "Seleccione opcion: ";
-        std::cin >> opcion;
-
-        if(opcion<0 || opcion>_cantOpciones)
-        {
-            std::cout << "Seleccion incorrecta, vuelva a ingresar la opcion..." << std::endl;
-        }
-    }
-    while(opcion<0 || opcion>_cantOpciones);
-    std::cout << std::endl;
-    return opcion;
-}
-
 void Menu::setTituloMenu(std::string tituloMenu)
 {
     _tituloMenu=tituloMenu;
@@ -66,7 +37,49 @@ void Menu::setOpCero(std::string opCero)
     _opCero=opCero;
 }
 
+int Menu::runMenu()
+{
+    int y = 0;
+
+    rlutil::hidecursor();
+    rlutil::cls();
+
+    // Título
+    rlutil::locate(40, 10);
+    std::cout << "+================================================+" << std::endl;
+    rlutil::locate(40, 11);
+    std::cout << "||              " << _tituloMenu << "             ||" << std::endl;
+    rlutil::locate(40, 12);
+    std::cout << "+================================================+" << std::endl;
+
+    while(true)
+    {
+        for(int i = 0; i < _cantOpciones; i++)
+        {
+            showItem("   " + _vOpciones[i] + "   ", 40, 13 + i, y == i);
+        }
+        rlutil::locate(40, 14 + _cantOpciones);
+        std::cout << "--------------------------------------------------";
+
+        showItem("   " + _opCero + "   ", 40, 15 + _cantOpciones, y == _cantOpciones);
+
+        switch(rlutil::getkey())
+        {
+        case rlutil::KEY_UP:
+            if(y > 0) y--;
+            break;
+        case rlutil::KEY_DOWN:
+            if(y < _cantOpciones) y++;
+            break;
+        case rlutil::KEY_ENTER:
+            return y;
+        }
+    }
+}
+
 Menu::~Menu()
 {
     delete []_vOpciones;
 }
+
+

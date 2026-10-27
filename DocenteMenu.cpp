@@ -1,34 +1,28 @@
-#include "DocentesMenu.h"
-#include "Menu.h"
+#include "DocenteMenu.h"
 
 DocenteMenu::DocenteMenu()
-    :Menu(6)
+    :Menu(3)
 {
-    setOpciones(1, "Registrar docente");
-    setOpciones(2, "Listar docentes");
-    setOpciones(3, "Listar docentes por apellido");
-    setOpciones(4, "Listar docentes por curso asignado");
-    setOpciones(5, "Consultas de docentes");
-    setOpciones(6, "Asignacion docente a curso ");
-    setTituloMenu("Menu Docente");
-    setOpCero("Volver al menu principal");
+    setOpciones(1, "               Registrar docente            ");
+    setOpciones(2, "               Modificar docente            ");
+    setOpciones(3, "            Dar de baja un docente          ");
+    setTituloMenu("      Docentes     ");
+    setOpCero("           Volver al menu principal         ");
 }
 
 void DocenteMenu::runDocente()
 {
-    system("cls");
     bool salir=false;
 
     do
     {
-        dibujarMenu();
-
-        switch(obtenerOpcionSeleccionada())
+        int opcion=runMenu();
+        switch(opcion)
         {
-
-        case 0: salir=true;
+        //case 0: _docenteManager.registrarDocente(); break;
+        //case 1: _docenteManager.modificarDocente(); break;
+        //case 2: _docenteManager.eliminarDocente(); break;
+        case 3: salir=true;
         }
-    }
-    while(!salir);
-    system("cls");
+    }while(!salir);
 }

@@ -9,5 +9,4 @@ public:
     void runCurso();
 private:
     CursoManager _cursoManager;
-
 };

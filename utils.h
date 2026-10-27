@@ -13,3 +13,4 @@ std::string codigoCursoToString(CodigoCurso codCurso);
 std::string gradoToString(Grado grado);
 std::string divisionToString(Division div);
 std::string diaSemanaToString(DiaSemana dSemana);
+void showItem(const std::string text, int posx, int posy, bool selected);
