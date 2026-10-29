@@ -2,6 +2,7 @@
 #include <string>
 #include "rlutil.h"
 #include "utils.h"
+#include "CursoArchivo.h"
 
 std::string cargarCadena()
 {
@@ -13,15 +14,6 @@ std::string cargarCadena()
     }
     std::getline(std::cin, texto);
     return texto;
-}
-
-CodigoCurso intToCodCurso(int cc)
-{
-    switch(cc)
-    {
-        case 1: return CodigoCurso::P3A;
-        default: return CodigoCurso::NONE;
-    }
 }
 
 Grado intToGrado(int grado)
@@ -46,30 +38,6 @@ Division intToDivision(int div)
         case 2: return Division::B;
         case 3: return Division::C;
         default: return Division::NONE;
-    }
-}
-
-DiaSemana intToDiaSemana(int dSemana)
-{
-    switch(dSemana)
-    {
-        case 1: DiaSemana::LUNES;
-        case 2: DiaSemana::MARTES;
-        case 3: DiaSemana::MIERCOLES;
-        case 4: DiaSemana::JUEVES;
-        case 5: DiaSemana::VIERNES;
-        case 6: DiaSemana::SABADO;
-        case 7: DiaSemana::DOMINGO;
-        default: DiaSemana::NONE;
-    }
-}
-
-std::string codigoCursoToString(CodigoCurso codCurso)
-{
-    switch(codCurso)
-    {
-        case CodigoCurso::P3A: return "PA3";
-        default: return "Desconocido";
     }
 }
 
@@ -98,21 +66,6 @@ std::string divisionToString(Division div)
     }
 }
 
-std::string diaSemanaToString(DiaSemana dSemana)
-{
-    switch(dSemana)
-    {
-        case DiaSemana::LUNES: return "Lunes";
-        case DiaSemana::MARTES: return "Martes";
-        case DiaSemana::MIERCOLES: return "Miercoles";
-        case DiaSemana::JUEVES: return "Jueves";
-        case DiaSemana::VIERNES: return "Viernes";
-        case DiaSemana::SABADO: return "Sabado";
-        case DiaSemana::DOMINGO: return "Domingo";
-        default: return "Desconocido";
-    }
-}
-
 void showItem(const std::string text, int posx, int posy, bool selected)
 {
     if(selected)
@@ -131,4 +84,23 @@ void showItem(const std::string text, int posx, int posy, bool selected)
     rlutil::locate(posx, posy);
     std::cout << text << std::endl;
     setBackgroundColor(rlutil::BLACK);
+}
+
+void cargarCurso(int &gr, int &div)
+{
+    std::cout << "Grado " << std::endl;
+    std::cout << "(1)Primero - (2)Segundo - (3)Tercero - (4)Cuarto - (5)Quinto - (6)Sexto" << std::endl;
+    std::cout << "Seleccion: ";
+    std::cin >> gr;
+    std::cout << "Divison " << std::endl;
+    std::cout << "(1)A - (2)B - (3)C" << std::endl;
+    std::cout << "Seleccion: ";
+    std::cin >> div;
+}
+
+void mostrarCurso(Curso &reg)
+{
+    std::cout << "ID: " << reg.getIdCurso() << std::endl;
+    std::cout << "Grado: " << gradoToString(reg.getGrado()) << std::endl;
+    std::cout << "Division: " << divisionToString(reg.getDivision()) << std::endl << std::endl;
 }

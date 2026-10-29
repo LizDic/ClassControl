@@ -35,6 +35,34 @@ ArchivoError CursoArchivo::guardar(Curso reg)
     return ArchivoError::OK;
 }
 
+ArchivoError CursoArchivo::guardar(int index, Curso reg)
+{
+    FILE *PFile;
+    size_t escritura;
+    const int CANT_REGISTROS=1;
+
+    PFile=fopen(_fileName.c_str(),"rb+");
+
+    if(PFile==nullptr)
+    {
+        _errorMessage="No se pudo abrir el archivo..." + _fileName;
+        return ArchivoError::ABRIR;
+    }
+
+    fseek(PFile,index*sizeof(Curso),SEEK_SET);
+    escritura=fwrite(&reg,sizeof(Curso),CANT_REGISTROS,PFile);
+    fclose(PFile);
+
+    if(escritura!=CANT_REGISTROS)
+    {
+        _errorMessage="No se pudo actualizar el registro...";
+        return ArchivoError::ESCRIBIR;
+    }
+
+    _errorMessage="";
+    return ArchivoError::OK;
+}
+
 ArchivoError CursoArchivo::leerTodos(Curso reg[], int cant)
 {
     FILE *pFile;
@@ -91,35 +119,6 @@ Curso CursoArchivo::leer(int index)
     _errorMessage="";
     return reg;
 }
-
-ArchivoError CursoArchivo::actualizar(int index, Curso reg)
-{
-    FILE *PFile;
-    size_t escritura;
-    const int CANT_REGISTROS=1;
-
-    PFile=fopen(_fileName.c_str(),"rb+");
-
-    if(PFile==nullptr)
-    {
-        _errorMessage="No se pudo abrir el archivo..." + _fileName;
-        return ArchivoError::ABRIR;
-    }
-
-    fseek(PFile,index*sizeof(Curso),SEEK_SET);
-    escritura=fwrite(&reg,sizeof(Curso),CANT_REGISTROS,PFile);
-    fclose(PFile);
-
-    if(escritura!=CANT_REGISTROS)
-    {
-        _errorMessage="No se pudo actualizar el registro...";
-        return ArchivoError::ESCRIBIR;
-    }
-
-    _errorMessage="";
-    return ArchivoError::OK;
-}
-
 
 int CursoArchivo::getCantReg()
 {

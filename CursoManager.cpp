@@ -14,45 +14,16 @@ Curso CursoManager::crearCurso()
     int idCurso,cc,gr,div,ds;
     Grado grado;
     Division division;
-    DiaSemana diaSemana;
-    CodigoCurso codCurso;
 
     idCurso=_cursoArchivo.getNewID();
 
     rlutil::cls();
     std::cout << "-----CARGAR CURSO-------" << std::endl;
-    std::cout << "ID Curso: " << idCurso << std::endl;
-    //AGREGAR LOS CODIGOS DE LOS CURSOS
-    std::cout << "Codigo" << std::endl;
-    std::cout << "1 - P3A" << std::endl;
-    std::cin >> cc;
+    std::cout << "ID " << idCurso << std::endl << std::endl;
+    cargarCurso(gr, div);
 
-    std::cout << "Grado " << std::endl;
-    std::cout << "1 - Primero" << std::endl;
-    std::cout << "2 - Segundo" << std::endl;
-    std::cout << "3 - Tercero" << std::endl;
-    std::cout << "4 - Cuarto" << std::endl;
-    std::cout << "5 - Quinto" << std::endl;
-    std::cout << "6 - Sexto" << std::endl;
-    std::cin >> gr;
+    return Curso(idCurso,intToGrado(gr),intToDivision(div));
 
-    std::cout << "Division " << std::endl;
-    std::cout << "1 - A" << std::endl;
-    std::cout << "2 - B" << std::endl;
-    std::cout << "3 - C" << std::endl;
-    std::cin >> div;
-
-    std::cout << "Dia semana " << std::endl;
-    std::cout << "1 - Lunes" << std::endl;
-    std::cout << "2 - Martes" << std::endl;
-    std::cout << "3 - Miercoles" << std::endl;
-    std::cout << "4 - Jueves" << std::endl;
-    std::cout << "5 - Viernes" << std::endl;
-    std::cout << "6 - Sabado" << std::endl;
-    std::cout << "7 - Domingo" << std::endl;
-    std::cin >> ds;
-
-    return Curso(idCurso,intToCodCurso(cc),intToGrado(gr),intToDivision(div),intToDiaSemana(ds));
 }
 
 void CursoManager::registrarCurso()
@@ -92,11 +63,8 @@ void CursoManager::listarCursos()
             if(vCursos[i].getEstado())
             {
                 std::cout << "Id: "<< vCursos[i].getIdCurso() << std::endl;
-                //COMPLETAR LOS CODIGOS DE LOS CURSOS
-                std::cout << "Codigo: " << codigoCursoToString(vCursos[i].getCodigoCurso()) << std::endl;
                 std::cout << "Grado: " << gradoToString(vCursos[i].getGrado()) << std::endl;
                 std::cout << "Division: " << divisionToString(vCursos[i].getDivision()) << std::endl;
-                std::cout << "Dia de semana: " << diaSemanaToString(vCursos[i].getDiaSemana()) << std::endl;
                 std::cout << "--------------------------------------------" << std::endl;
             }
         }
@@ -123,6 +91,35 @@ void CursoManager::modificarCurso()
         std::cout << "El curso con ID " << id << " no se encuentra en el sistema..." << std::endl;
         return;
     }
+
+    reg=_cursoArchivo.leer(index);
+
+    mostrarCurso(reg);
+
+    int gr, div;
+    Grado grado;
+    Division division;
+
+    std::cout << "Ingrese nuevamente los campos " << std::endl;
+    cargarCurso(gr, div);
+
+    grado=intToGrado(gr);
+    division=intToDivision(div);
+
+    reg.setGrado(grado);
+    reg.setDivision(division);
+
+    if(_cursoArchivo.guardar(index, reg)==ArchivoError::OK)
+    {
+        std::cout << "Se modifico exitosamente!" << std::endl;
+    }
+    else
+    {
+        std::cout << "Ocurrio un error al guardar el Curso: " << _cursoArchivo.getLastError() << std::endl;
+    }
+
+    system("pause");
+
 }
 
 void CursoManager::eliminarCurso()
@@ -150,12 +147,28 @@ void CursoManager::eliminarCurso()
         return;
     }
 
-    reg.setEstado(false);
-    if(_cursoArchivo.actualizar(index,reg)==ArchivoError::OK)
-    {
+    mostrarCurso(reg);
 
-       std::cout << "Curso con ID " << id << " eliminado con éxito." << std::endl;
+    bool eliminar=false;
+
+    std::cout << "Esta seguro que desea eliminar el curso " << reg.getIdCurso() << ". Ingrese 1 para eliminar, 0 para cancelar la operacion" << std::endl;
+    std::cin >> eliminar;
+
+    if(eliminar)
+    {
+        reg.setEstado(false);
+        if(_cursoArchivo.guardar(index,reg)==ArchivoError::OK)
+        {
+            std::cout << "Curso con ID " << id << " eliminado con exito!" << std::endl;
+        }
+
     }
+    else
+    {
+        std::cout << "Operacion cancelada..." << std::endl;
+    }
+
+    system("pause");
 }
 
 

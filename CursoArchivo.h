@@ -8,9 +8,9 @@ class CursoArchivo
 public:
     CursoArchivo(std::string fileName="Cursos.dat");
     ArchivoError guardar(Curso reg);
+    ArchivoError guardar(int index, Curso reg);
     ArchivoError leerTodos(Curso reg[], int cant);
     Curso leer(int index);
-    ArchivoError actualizar(int index, Curso reg);
     int getCantReg();
     int getNewID();
     int buscarByID(int id);
