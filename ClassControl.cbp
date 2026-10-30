@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ClassControl" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/ClassControl" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/ClassControl" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="Alumno.cpp" />
+		<Unit filename="Alumno.h" />
+		<Unit filename="AlumnoArchivo.cpp" />
+		<Unit filename="AlumnoArchivo.h" />
+		<Unit filename="AlumnoManager.cpp" />
+		<Unit filename="AlumnoManager.h" />
+		<Unit filename="AlumnoMenu.cpp" />
+		<Unit filename="AlumnoMenu.h" />
+		<Unit filename="AppMenu.cpp" />
+		<Unit filename="AppMenu.h" />
+		<Unit filename="ArchivoError.h" />
+		<Unit filename="AsignacionDocenteMenu.cpp" />
+		<Unit filename="AsignacionDocenteMenu.h" />
+		<Unit filename="ClasesDadasMenu.cpp" />
+		<Unit filename="ClasesDadasMenu.h" />
+		<Unit filename="ConsultasMenu.cpp" />
+		<Unit filename="ConsultasMenu.h" />
+		<Unit filename="Curso.cpp" />
+		<Unit filename="Curso.h" />
+		<Unit filename="CursoArchivo.cpp" />
+		<Unit filename="CursoArchivo.h" />
+		<Unit filename="CursoManager.cpp" />
+		<Unit filename="CursoManager.h" />
+		<Unit filename="CursoMenu.cpp" />
+		<Unit filename="CursoMenu.h" />
+		<Unit filename="Division.h" />
+		<Unit filename="DocenteMenu.cpp" />
+		<Unit filename="DocenteMenu.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
+		<Unit filename="Grado.h" />
+		<Unit filename="InformesMenu.cpp" />
+		<Unit filename="InformesMenu.h" />
+		<Unit filename="InscripcionMenu.cpp" />
+		<Unit filename="InscripcionMenu.h" />
+		<Unit filename="ListadosMenu.cpp" />
+		<Unit filename="ListadosMenu.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
+		<Unit filename="NotaMenu.cpp" />
+		<Unit filename="NotaMenu.h" />
+		<Unit filename="Persona.cpp" />
+		<Unit filename="Persona.h" />
+		<Unit filename="TemaMenu.cpp" />
+		<Unit filename="TemaMenu.h" />
+		<Unit filename="UnidadDidacticaMenu.cpp" />
+		<Unit filename="UnidadDidacticaMenu.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="rlutil.h" />
+		<Unit filename="utils.cpp" />
+		<Unit filename="utils.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
