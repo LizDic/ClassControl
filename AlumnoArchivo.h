@@ -8,7 +8,7 @@ class AlumnoArchivo
 public:
     AlumnoArchivo (std::string fileName = "Alumnos.dat");
     ArchivoError guardar (Alumno reg);
-    ArchivoError leerTodos (Alumno teg[] , int cant);
+    ArchivoError leerTodos (Alumno reg[] , int cant);
     Alumno leer (int index);
     ArchivoError actualizar (int index, Alumno reg);
     int getCantReg ();
