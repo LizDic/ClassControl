@@ -10,7 +10,7 @@ Persona::Persona(){ //CONSTRUCTOR VACIO
 }
 
 
-Persona::Persona(const char *nombre, const char *apellido, const char *dni)
+Persona::Persona(std::string nombre, std::string apellido, std::string dni)
 {
     setNombre (nombre);
     setApellido (apellido);
@@ -19,26 +19,43 @@ Persona::Persona(const char *nombre, const char *apellido, const char *dni)
 
 }
 
-void Persona::setNombre (const char *nombre)
+void Persona::setNombre (std::string nombre)
 {
-    strncpy(_nombre, nombre, sizeof(_nombre) - 1);
-    _nombre [sizeof (_nombre) - 1] = '\0';
+    if(nombre.size() <= 49) //si el tamaño es menor que 49
+    {
+        strcpy(_nombre, nombre.c_str()); //lo copia directamente en el atributo _nombre
+    }
+    else
+    {
+        strcpy(_nombre, nombre.substr(0, 49).c_str()); // lo corta y copia lo que hay
+    }
 }
 
 
-void Persona::setApellido (const char *apellido)
+void Persona::setApellido (std::string apellido)
 {
-    strncpy(_apellido, apellido, sizeof(_apellido) - 1);
-    _apellido [sizeof (_apellido) - 1] = '\0';
+    if(apellido.size() <= 49)
+    {
+        strcpy(_apellido, apellido.c_str());
+    }
+    else
+    {
+        strcpy(_apellido, apellido.substr(0, 49).c_str());
+    }
 }
 
 
-void Persona::setDni (const char *dni)
+void Persona::setDni (std::string dni)
 {
-    strncpy(_dni, dni, sizeof(_dni) - 1);
-    _dni [sizeof (_dni) - 1] = '\0';
+    if(dni.size() <= 49)
+    {
+        strcpy(_dni, dni.c_str());
+    }
+    else
+    {
+        strcpy(_dni, dni.substr(0, 49).c_str());
+    }
 }
-
 
 void Persona::setEstado (bool estado)
 {
@@ -46,21 +63,21 @@ void Persona::setEstado (bool estado)
 }
 
 //Getters
-const char *Persona::getNombre()
+std::string Persona::getNombre()
 {
-    return _nombre;
+    return std::string (_nombre);
 }
 
 
-const char *Persona::getApellido()
+std::string Persona::getApellido()
 {
-    return _apellido;
+    return std::string (_apellido);
 }
 
 
-const char *Persona::getDni()
+std::string Persona::getDni()
 {
-    return _dni;
+    return std::string(_dni);
 }
 
 

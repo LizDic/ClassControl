@@ -6,7 +6,7 @@ Docente::Docente() : Persona()
 
 }
 
-Docente::Docente (const char *nombre, const char *apellido, const char *dni, int idDocente)
+Docente::Docente (std::string nombre, std::string apellido, std::string dni, int idDocente)
                   : Persona (nombre,apellido,dni)
 {
     setIdDocente (idDocente);

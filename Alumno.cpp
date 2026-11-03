@@ -10,7 +10,7 @@ Alumno::Alumno() : Persona()
 
 }
 
-Alumno::Alumno(const char *nombre, const char *apellido, const char *dni, int legajo, Fecha fechaNacimiento, const char *email, const char *adaptacion)
+Alumno::Alumno(std::string nombre, std::string apellido, std::string dni, int legajo, Fecha fechaNacimiento, std::string email, std::string adaptacion)
     : Persona (nombre, apellido,dni)
 {
     setLegajo(legajo);
@@ -33,17 +33,27 @@ void Alumno::setFechaNacimiento(Fecha fechaNacimiento)
 }
 
 
-void Alumno::setEmail(const char *email)
+void Alumno::setEmail(std::string email)
 {
-    strncpy (_email, email, sizeof (_email) - 1);
-    _email [sizeof (_email) - 1] = '\0';
+    if (email.size() <= 49) {
+        strcpy (_email, email.c_str());
+    }
+    else
+    {
+        strcpy(_email, email.substr (0,49).c_str());
+    }
 }
 
 
-void Alumno::setAdaptacion (const char *adaptacion)
+void Alumno::setAdaptacion (std::string adaptacion)
 {
-    strncpy (_adaptacion, adaptacion, sizeof (_adaptacion) - 1);
-    _adaptacion [sizeof (_adaptacion) - 1] = '\0';
+   if (adaptacion.size() <= 200) {
+        strcpy (_adaptacion, adaptacion.c_str());
+    }
+    else
+    {
+        strcpy(_adaptacion, adaptacion.substr (0,49).c_str());
+    };
 }
 
 //GETT
@@ -59,13 +69,13 @@ Fecha Alumno::getFechaNacimiento()
 }
 
 
-const char *Alumno::getEmail()
+std::string Alumno::getEmail()
 {
     return _email;
 }
 
 
-const char *Alumno::getAdaptacion()
+std::string Alumno::getAdaptacion()
 {
     return _adaptacion;
 }

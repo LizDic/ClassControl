@@ -1,6 +1,6 @@
 #pragma once
 #include "Menu.h"
-//#include "DocenteManager"
+#include "DocenteManager.h"
 
 class DocenteMenu:public Menu
 {
@@ -8,5 +8,5 @@ public:
     DocenteMenu();
     void runDocente();
 private:
-    //DocenteManager _docenteManager;
+    DocenteManager _docenteManager;
 };

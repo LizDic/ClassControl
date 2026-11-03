@@ -43,8 +43,8 @@ Alumno AlumnoManager::crearAlumno(){
     std::cout << "Adaptacion (si no tiene, escriba Ninguna): ";
     adaptacion=cargarCadena();
 
-    return Alumno(nombre.c_str(), apellido.c_str(), dni.c_str(), legajo,
-                  Fecha(dia, mes, anio), email.c_str(), adaptacion.c_str());
+    return Alumno(nombre, apellido, dni, legajo,
+                  Fecha(dia, mes, anio), email, adaptacion);
 }
 
 void AlumnoManager::registrarAlumno()
@@ -103,11 +103,11 @@ void AlumnoManager::modificarAlumno()
     std::cout << "Nueva adaptacion (actual: " << reg.getAdaptacion() << "): ";
     adaptacion=cargarCadena();
 
-    reg.setNombre(nombre.c_str());
-    reg.setApellido(apellido.c_str());
-    reg.setDni(dni.c_str());
-    reg.setEmail(email.c_str());
-    reg.setAdaptacion(adaptacion.c_str());
+    reg.setNombre(nombre);
+    reg.setApellido(apellido);
+    reg.setDni(dni);
+    reg.setEmail(email);
+    reg.setAdaptacion(adaptacion);
 
     if(_alumnoArchivo.actualizar(index, reg)==ArchivoError::OK)
     {

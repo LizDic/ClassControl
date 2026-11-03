@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 
 
@@ -6,21 +7,19 @@ class Persona {
 
 public://CONSTRUCTORES
     Persona ();
-    Persona (const char *nombre,
-             const char *apellido,
-             const char *dni);
+    Persona (std::string nombre,std::string apellido, std::string dni);
 
     //SETTERS
-    void setNombre (const char *nombre);
-    void setApellido (const char *apellido);
-    void setDni (const char *dni);
+    void setNombre (std::string nombre);
+    void setApellido (std::string apellido);
+    void setDni (std::string dni);
     void setEstado (bool estado);
 
 
     //GET
-    const char *getNombre();
-    const char *getApellido();
-    const char *getDni();
+    std::string getNombre();
+    std::string getApellido();
+    std::string getDni();
     bool getEstado();
 
 protected:

@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include "Persona.h"
 #include "Fecha.h"
 
@@ -7,19 +8,19 @@ class Alumno: public Persona
 {
 public://constructores
     Alumno();
-    Alumno(const char *nombre, const char *apellido, const char *dni, int legajo, Fecha fechaNacimiento, const char *email, const char *adaptacion);
+    Alumno(std::string nombre, std::string apellido, std::string dni, int legajo, Fecha fechaNacimiento, std::string email, std::string adaptacion);
 
     //SET
     void setLegajo (int legajo);
     void setFechaNacimiento (Fecha fechaNacimiento);
-    void setEmail (const char *email);
-    void setAdaptacion (const char *adaptacion);
+    void setEmail (std::string email);
+    void setAdaptacion (std::string adaptacion);
 
     //GET
     int getLegajo();
     Fecha getFechaNacimiento ();
-    const char *getEmail();
-    const char *getAdaptacion();
+    std::string getEmail();
+    std::string getAdaptacion();
 
 
 private:

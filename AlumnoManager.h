@@ -8,6 +8,7 @@ public:
     AlumnoManager();
     Alumno crearAlumno();
     void registrarAlumno();
+   // void listarAlumno();
     void modificarAlumno();
     void eliminarAlumno();
 
