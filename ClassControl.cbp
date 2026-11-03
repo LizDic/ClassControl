@@ -57,6 +57,12 @@
 		<Unit filename="CursoMenu.cpp" />
 		<Unit filename="CursoMenu.h" />
 		<Unit filename="Division.h" />
+		<Unit filename="Docente.cpp" />
+		<Unit filename="Docente.h" />
+		<Unit filename="DocenteArchivo.cpp" />
+		<Unit filename="DocenteArchivo.h" />
+		<Unit filename="DocenteManager.cpp" />
+		<Unit filename="DocenteManager.h" />
 		<Unit filename="DocenteMenu.cpp" />
 		<Unit filename="DocenteMenu.h" />
 		<Unit filename="Fecha.cpp" />
